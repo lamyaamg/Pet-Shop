@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Pet Adoption Form </title>
+        <script>
+            function validate()
+            {
+                //Texts, numbers, emails, etc...
+                 var PetName = document.getElementById('PetName');
+                 var PetAge = document.getElementById('PetAge');
+
+                 //Checkboxed
+                 var white = document.getElementById('white').checked;
+                 var black = document.getElementById('black').checked;
+                 var dbrown = document.getElementById('dbrown').checked;
+                 var lbrown = document.getElementById('lbrown').checked;
+                 var gray = document.getElementById('gray').checked;
+                 var orange = document.getElementById('orange').checked;
+
+                 //Radio buttons
+                 var female = document.getElementById('female').checked;
+                 var male = document.getElementById('male').checked;
+
+                 //Dropdown list
+                 var s1 = document.getElementById('Pet').value;
+                 
+                 if(PetName.value.trim() == "" || PetAge.value.trim() == "")
+                 {
+                     alert("No Blank Values Allowed");
+                     return false;
+                 }
+                 else if(white == false && black == false && dbrown == false
+                 && lbrown == false && gray  == false && orange == false)
+                 {
+                     alert("Choose At Least One Color For Your Pet");
+                     return false;
+                 }
+                 else if(female == false && male == false)
+                 {
+                     alert("You Need To Select The Pet's Gender");
+                     return false;
+                 }
+                 else if(s1 == "selection")
+                 {
+                     alert("Please Select The Pet Type");
+                     return false;
+                 }
+                 else
+                 {
+                     true;
+                 }
+            }
+        </script>
+    </head>
+
+    <body>
+        <header style= "background-color: rgb(140, 110, 165);">
+            <h1 style="text-align: center; font-family:'PT Sans'; color: rgb(221, 199, 199);">Pet Adoption</h1>
+        </header>       
+
+        <aside style="float: left; border-right: 2px dashed rgb(95, 51, 131);
+        height:500px; padding-right:10px">
+        <img src="pets.jpg" width="150" height="130" alt="pets"> <br><br>
+        <img src="bird.jpg" width="150" height="120" alt="pets"> <br> <br><br>
+        <img src="fish.jpg" width="150" height="90" alt="pets">
+        </aside>
+
+        <aside style="float: right; border-left: 2px dashed rgb(95, 51, 131);
+        height:500px; padding-left:10px">
+        <img src="pets.jpg" width="150" height="130" alt="pets"> <br><br>
+        <img src="bird.jpg" width="150" height="120" alt="pets"> <br> <br><br>
+        <img src="fish.jpg" width="150" height="90" alt="pets">
+        </aside>
+        
+        <section style="margin-left:195px; padding-left:250px;" >
+        <form method="post" onsubmit="return validate()" style = "font-family:'PT Sans'; font-size: 18px;"
+        action="message.html" >
+            <fieldset style = "width:500px; background-color:rgb(221, 199, 199);">
+            <legend style="color:rgb(95, 51, 131);"> Information of Pet You Wish to Adopt </legend>
+            <label>Pet Name: </label><input type = "text" id = "PetName" /> <br>
+            <label>Pet Age:  </label><input type = "number" id = "PetAge" placeholder="In weeks"/> <br> <br>
+            
+            <label>Pet Gender: </label>
+            <input type = "radio" id = "female" value = "female" /> <label> Female </label>
+            <input type = "radio" id = "male" value = "male" /> <label> Male </label> <br> <br>
+            
+            <label>Pet Type: </label>
+            <select id="Pet">
+                <option value ="selection">--</option>
+                <option value ="dog">Dog</option>
+                <option value ="cat">Cat</option>
+                <option value ="fish">Fish</option>
+                <option value ="bird">Bird</option>                
+                <option value ="hamster">Hamster</option>
+                </select>
+                <br><br>
+
+            <label>Pet Color/s:</label> <br>
+            <input type = "checkbox" id = "white"> <label style="color:white;"> White </label>
+            <input type = "checkbox" id = "black"> <label style="color:black;"> Black </label>
+            <input type = "checkbox" id = "dbrown">  <label style="color:rgb(107, 72, 43);"> Dark Brown </label> <br>
+            <input type = "checkbox" id = "lbrown"> <label style="color:rgb(184, 155, 118);"> Light Brown </label>
+            <input type = "checkbox" id = "gray"> <label style="color:gray"> Grey </label>
+            <input type = "checkbox" id = "orange">  <label style="color:orange;"> Orange </label> <br><br>
+            </fieldset>
+
+            <input type = "submit" name="submit" value="submit" style ="background-color:rgb(140, 110, 165);
+             width:54%; font-size: 16px; color:rgb(221, 199, 199);">
+            <br><br>
+        </form>
+        </section>
+
+    </body>
+</html>
